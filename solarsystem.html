@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solar System, NUM Astronomy">
+    <link rel="stylesheet" href="css/solar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Solar System</title>
+</head>
+<body>
+    <header class="header" >
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="menu-icon">☰</label>
+            <!-- <ul class="nav_list">
+                <li class="navItem" class="home"><a class="nav_link"><img src="earth.svg" alt="Earth" onclick="clearPlanets()" width="40" height="40"></a></li>
+                <li class="navItem" onclick="planetHandler('mercury')"><a class="nav_link">Буд</a></li>
+                <li class="navItem" onclick="planetHandler('venus')"><a class="nav_link">Сугар</a></li>
+                <li class="navItem" onclick="planetHandler('earth')"><a class="nav_link">Дэлхий</a></li>
+                <li class="navItem" onclick="planetHandler('mars')"><a class="nav_link">Ангараг</a></li>
+                <li class="navItem" onclick="planetHandler('jupiter')"><a class="nav_link">Бархасбадь</a></li>
+                <li class="navItem" onclick="planetHandler('saturn')"><a class="nav_link">Санчир </a></li>
+                <li class="navItem" onclick="planetHandler('uranus')"><a class="nav_link">Тэнгэрийн ван</a></li>
+                <li class="navItem" onclick="planetHandler('neptune')"><a class="nav_link">Далайн ван </a></li> -->
+            </ul>
+        </div>
+    </header>
+    <div id="contentContainer">
+        <div id="bottomText"></div>
+        <div id="pictureDiv"></div>
+        <div id="topText"></div>
+    </div>
+    <a-scene vr-mode-ui="enabled: true">
+        <a-camera>
+          <a-cursor color="yellow" fuse=true fuseTimeout="800" ></a-cursor>
+        </a-camera>
+        <a-entity camera look-controls wasd-controls="acceleration:400" fly="true" position="0 10 0">
+        </a-entity>
+        <a-entity scale="0.3 0.3 0.3" position="-5.4 12 -3" geometry="primitive: sphere" onclick="location.reload()"   material="color:purple"></a-entity>
+        <a-text font="mozillavr" color="yellow" value="Back" position="-5 12 -2.5" rotation="0 30 0"></a-text>
+
+
+        <a-assests>
+            <img id="galaxy" src="img/planets/jpg/galaxy.jpg">
+            <img id="earth" src="img/planets/jpg/earth1.jpg">
+            <img id="jupiter" src="img/planets/jpg/jupiter1.jpg">
+            <img id="mars" src="img/planets/jpg/mars1.jpg">
+            <img id="mercury" src="img/planets/jpg/mercury1.jpg">
+            <img id="neptune" src="img/planets/jpg/neptune.jpg">
+            <img id="moon" src="img/planets/jpg/moon.jpg">
+            <img id="pluto" src="img/planets/jpg/pluto.jpg">
+            <img id="saturn" src="img/planets/jpg/saturn1.jpg">
+            <img id="sun" src="img/planets/jpg/sun1.jpg">
+            <img id="uranus" src="img/planets/jpg/uranus1.jpg">
+            <img id="venus" src="img/planets/jpg/venus1.jpg">
+        </a-assests>
+        <a-sphere position="-550 1.25 -15" radius="100.5" animation="property: rotation; to: 0 360 0; fill: backwards; dur: 30000; loop: true; easing: linear; segment-height: 56;"  material="src: #sun; shader: flat; " sound="src: url(img/planets/sounds/sun.mp3); autoplay: true; loop: true; volume: 75;" >
+            <!-- light="type: point; color: white; intensity: 2.5" -->
+            <!-- Mercury ring -->
+            <a-ring material="shader: flat; opacity: 0.5; color: white;" segments-theta="512" radius-inner="500" radius-outer="500.1" side="double" rotation="90 0 0"></a-ring>
+            <!-- Venus ring -->
+            <a-ring material="shader: flat; opacity: 0.5; color: white;" segments-theta="512" radius-inner="525" radius-outer="525.1" side="double" rotation="90 0 0"></a-ring>
+            <!-- Earth ring -->
+            <a-ring material="shader: flat; opacity: 0.5; color: white;" segments-theta="512" radius-inner="546" radius-outer="546.1" side="double" rotation="90 0 0"></a-ring>
+            <!-- Mars ring -->
+            <a-ring material="shader: flat; opacity: 0.5; color: white;" segments-theta="512" radius-inner="576" radius-outer="576.1" side="double" rotation="90 0 0"></a-ring>
+            <!-- Jupiter ring -->
+            <a-ring material="shader: flat; opacity: 0.5; color: white;" segments-theta="512" radius-inner="720" radius-outer="720.1" side="double" rotation="90 0 0"></a-ring>
+            <!-- Saturn ring -->
+            <a-ring material="shader: flat; opacity: 0.5; color: white;" segments-theta="512" radius-inner="760" radius-outer="760.1" side="double" rotation="90 0 0"></a-ring>
+            <!-- Uranus ring -->
+            <a-ring material="shader: flat; opacity: 0.5; color: white;" segments-theta="512" radius-inner="810" radius-outer="810.1" side="double" rotation="90 0 0"></a-ring>
+            <!-- Neptune ring -->
+            <a-ring material="shader: flat; opacity: 0.5; color: white;" segments-theta="512" radius-inner="850" radius-outer="850.1" side="double" rotation="90 0 0"></a-ring>
+
+            <a-light type="point" color="#FFF" intensity="3" distance="1000"></a-light>
+        </a-sphere>
+        <!-- Mercury planet -->
+        <a-entity position="-550 1.25 -15" animation="property: rotation; to: 0 360 0; dur: 87600; fill: forwards; easing: linear; loop: true;" id="mercury_entity">
+            <a-sphere position="500 0 0" radius="3.8" src="#mercury" animation="property: rotation; to: 0 360 0; fill: backwards; dur: 58650; loop: true; easing: linear; segment-height: 56;" id="mercury_sphere" sound="src: url(img/planets/sounds/mercury.mp3); autoplay: true; loop: true; volume: 10;">
+            </a-sphere>
+        </a-entity>
+        <!-- Venus planet -->
+        <a-entity position="-550 1.25 -15" animation="property: rotation; to: 0 360 0; dur: 222000; fill: forwards; easing: linear; loop: true;">
+            <a-sphere position="525 0 0" radius="4.0" src="#venus" animation="property: rotation; to: 0 360 0; fill: backwards; dur: 243000; loop: true; easing: linear; segment-height: 56;"
+            sound="src: url(img/planets/sounds/venus.mp3); autoplay: true; loop: true; volume: 7;" >
+            </a-sphere>
+        </a-entity>
+        <!-- Earth planet -->
+        <a-entity position="-550 1.25 -15" animation="property: rotation; to: 0 360 0; dur: 365000; fill: forwards; easing: linear; loop: true;">
+            <a-sphere earth position="546 0 0" radius="5.0" src="#earth" animation="property: rotation; to: 0 360 0; fill: backwards; dur: 1000; loop: true; easing: linear; segment-height: 56;" 
+            sound="src: url(img/planets/sounds/earth.mp3); autoplay: true; loop: true; volume: 7;" >
+                <!-- Moon ring -->
+                <a-ring material="shader: flat; opacity: 0.5; color: white;" segments-theta="512" radius-inner="9.3" radius-outer="9.31" side="double" rotation="90 0 0"></a-ring>
+                <!-- Moon -->
+                <a-sphere position="10 0 0" radius="0.5" src="#moon" animation="property: rotation; to: 0 360 0; fill: backwards; duration: 2000; loop: true; easing: linear; segment-height: 56;">
+                </a-sphere>
+            </a-sphere>
+        </a-entity>
+        <!-- Mars planet -->
+        <a-entity position="-550 1.25 -15" animation="property: rotation; to: 0 360 0; dur: 686000; fill: forwards; easing: linear; loop: true;">
+            <a-sphere position="576 0 0" radius="5.0" src="#mars" animation="property: rotation; to: 0 360 0; fill: backwards; dur: 1030; loop: true; easing: linear; segment-height: 56;" sound="src: url(img/planets/sounds/mars.mp3); autoplay: true; loop: true; volume: 7;" >
+            </a-sphere>
+        </a-entity>
+        <!-- Jupiter planet -->
+        <a-entity position="-550 1.25 -15" animation="property: rotation; to: 0 360 0; dur: 4328000; fill: forwards; easing: linear; loop: true;">
+            <a-sphere position="720 0 0" radius="8" src="#jupiter" animation="property: rotation; to: 0 360 0; fill: backwards; dur: 410; loop: true; easing: linear; segment-height: 56;" sound="src: url(img/planets/sounds/jupiter.mp3); autoplay: true; loop: true; volume: 7;" >
+            </a-sphere>
+        </a-entity>
+        <!-- Saturn planet -->
+        <a-entity position="-550 1.25 -15" animation="property: rotation; to: 0 360 0; dur: 10950000; fill: forwards; easing: linear; loop: true;">
+            <a-sphere position="760 0 0" radius="7.5" src="#saturn" animation="property: rotation; to: 0 360 0; fill: backwards; dur: 440; loop: true; easing: linear; segment-height: 56;" sound="src: url(img/planets/sounds/saturn.mp3); autoplay: true; loop: true; volume: 7;" >
+            </a-sphere>
+        </a-entity>
+        <!-- Uranus planet -->
+        <a-entity position="-550 1.25 -15" animation="property: rotation; to: 0 360 0; dur: 30660000; fill: forwards; easing: linear; loop: true;">
+            <a-sphere position="810 0 0" radius="5.5" src="#uranus" animation="property: rotation; to: 0 360 0; fill: backwards; dur: 720; loop: true; easing: linear; segment-height: 56;" sound="src: url(img/planets/sounds/uranus.mp3); autoplay: true; loop: true; volume: 7;" >
+            </a-sphere>
+        </a-entity>
+        <!-- Neptune planet -->
+        <a-entity position="-550 1.25 -15" animation="property: rotation; to: 0 360 0; dur: 90520000; fill: forwards; easing: linear; loop: true;">
+            <a-sphere position="850 0 0" radius="5.5" src="#neptune" animation="property: rotation; to: 0 360 0; fill: backwards; dur: 670; loop: true; easing: linear; segment-height: 56;" sound="src: url(img/planets/sounds/neptune.mp3); autoplay: true; loop: true; volume: 7;" >
+            </a-sphere>
+        </a-entity>
+        <!-- Background (Galaxy) -->
+        <a-sky src="#galaxy" radius="5000"></a-sky>
+    </a-schene>
+    
+    <script src="js/solarsystem.js" defer></script>
+</body>
+</html>

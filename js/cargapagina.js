@@ -1,24 +1,34 @@
 $(document).ready(function()
 {
-    $("#ejerciciouno").on("click",function(event)
+    $("#room1").on("click",function(event)
     {
         document.getElementById('carouselExampleFade').remove();
-        cargarTematica("contenedorejercicio","marineanimal.html")
+        cargarTematica("classroom","marineanimal.html")
     })
-    $("#ejerciciodos").on("click",function(event)
+    $("#room2").on("click",function(event)
     {
         document.getElementById('carouselExampleFade').remove();
-        cargarTematica("contenedorejercicio","neighborhood.html")
+        cargarTematica("classroom","neighborhood.html")
     })
-    $("#ejerciciotres").on("click",function(event)
+    $("#room3").on("click",function(event)
     {
         document.getElementById('carouselExampleFade').remove();
-        cargarTematica("contenedorejercicio","dance.html")
+        cargarTematica("classroom","dance.html")
     })
-    $("#ejerciciocuatro").on("click",function(event)
+    $("#room4").on("click",function(event)
     {
         document.getElementById('carouselExampleFade').remove();
-        cargarTematica("contenedorejercicio","preposiciones.html")
+        cargarTematica("classroom","preposiciones.html")
+    })
+    $("#room5").on("click",function(event)
+    {
+        document.getElementById('carouselExampleFade').remove();
+        cargarTematica("classroom","solarsystem.html")
+    })
+    $("#room6").on("click",function(event)
+    {
+        document.getElementById('carouselExampleFade').remove();
+        cargarTematica("classroom","shooting.html")
     })
     
     
